@@ -48,9 +48,11 @@ try:
                 test_url = target_url + word
                 
                 try:
-                    # Use a real browser User-Agent to bypass simple security filters
+                   # Use a browser-like User-Agent for more realistic HTTP requests
                     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
-                    response = requests.get(test_url, headers=headers, timeout=3)
+                    
+                    # UPDATED: allow_redirects=False added to catch 301/302 codes before they forward
+                    response = requests.get(test_url, headers=headers, timeout=3, allow_redirects=False)
                     
                     log_text = ""
                     
@@ -62,7 +64,9 @@ try:
                         log_text = f"[/] FORBIDDEN!   -> {test_url} (403 Forbidden)"
                         print(Fore.YELLOW + log_text)
                     elif response.status_code in [301, 302]:
-                        log_text = f"[*] REDIRECT     -> {test_url} (301/302 Redirect)"
+                        # UPDATED: Getting the destination URL from 'Location' header
+                        redirect_target = response.headers.get('Location', 'Unknown Destination')
+                        log_text = f"[*] REDIRECT     -> {test_url} ({response.status_code} Redirect -> {redirect_target})"
                         print(Fore.BLUE + log_text)
                     
                     # Append the discovery to our report if a valid status code is found
