@@ -18,7 +18,7 @@ This project is heavily inspired by legendary cybersecurity tools like **DirBust
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/hamzaatmacaa/PyDirBuster.git
    cd PyDirBuster
    ```
 
