@@ -26,6 +26,10 @@ This project is heavily inspired by legendary cybersecurity tools like **DirBust
    ```bash
    pip install -r requirements.txt
    ```
+   *Note for Kali Linux / Ubuntu users:* If you encounter an `externally-managed-environment` error due to PEP 668, use the following command instead:
+   ```bash
+   pip3 install -r requirements.txt --break-system-packages
+   ```
 
 3. Launch the tool (You can use the built-in `wordlist.txt` or supply your own):
    ```bash
