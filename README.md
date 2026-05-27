@@ -50,3 +50,4 @@ Planned updates for upcoming releases of this tool:
 
 ## ⚠️ Disclaimer
 This tool was developed strictly for educational purposes, security awareness, and ethical penetration testing. Do not run this script against any server or infrastructure without explicit, written permission from the target owner. The author accepts no liability for any unauthorized actions, misuse, or damage caused by this utility.
+
